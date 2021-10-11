@@ -1,35 +1,50 @@
-import java.util.Scanner;
-import java.util.List;
-import java.util.ArrayList;
-
 public class App {
     public static void main(String[] args) throws Exception {
-       
-        int[] nums = new int [10]; //1mõõtmelised arrayd. Tuleb sisestada väärtus(10)
-        nums [0] = 2;
-        String[] names = {"helis", "heidi", "tormi"};
-        System.out.printIn(names) ;
-        String[] names2 = {"helis", "heidi", "tormi ja sven"};
-        System.out.printIn(names2[0]);
-        for (String name : names2){
-            System.out.printIn (name);
-        }
-        ArrayList<String> fruits = new ArrayList<String>();
-        fruits.add("banana");
-        fruits.add("apple");
-        fruits.add("pineapple");
-        System.out.printIn(fruits.get(2));
-        int[][] array2d = new int [3][3];        //kahemõõtmelised arrayd
-        array2d [0][0]= 3;                       //kohal 0,0 asub 3
-        array2d [2][1]= 4;                       //kohal 2,1 asub 4
-        System.out.printIn(array2d [0][0]);         //kui pringin välja 00 koha, siis tuleb 3
+       Animal animal1 = new Animal ("Miki Hiir", 56, 2); //on animal tüüpi, nimi animal1 /animal onbjekst on animal klassi tüüpi. saame luua uue animali new
+       Animal.nr =1;
+       //animal1.name = "Miki Hiir";
+        //animal1.age = 56;
+        //animal1.nLegs = 2;
+        animal1.getDescription();
 
-
-        Sring[][] board = {
-            {"1","2","3"},
-            {"4", "5" ,"6"},
-            {"7", "8", "9"}
-        };
+        Animal animal2 = new Animal ("Iiah", 5, 4 ); //saab lisada animal 2 ja siis saab mõlemat välja pritida. Tegevus sama, omadus sama aga eraldi seisvad andmed
+        Animal.nr = 2;
+        //animal2.name = "Iiah";
+        //animal2.age = 5;
+        //animal2.nLegs = 4;
+        animal2.getDescription();
+        System.out.println(Animal.nr);
+        System.out.println(Animal.nr);
 
     }
 }
+
+ class Animal {
+    public String name;  //Need on näited atribuutidest e propertitest
+    public int age;
+    public int nLegs; //number of legs
+    public static int nr;
+
+    public Animal(String name, int age, int nLegs) {  //constructor - see lubab meil käituda lihtsamalt. Ei pea eraldiseisvalt ära täita, nõuab, et me üleval midagi ära täidaksime ja ei ole vaja eraldi name ja aega ära täita
+        this.name = name;
+        this.age = age;
+        this.nLegs= nLegs;
+    }
+
+    public void getDescription (){
+        System.out.printf("My Name is %s and I am %d years old and I have %d legs \n", this.name, this.age, this.nLegs);  //meetod mida ta on võimeline tegema (void, sest ei tagasta midagi)
+    }
+
+            public int getAge() {
+                return this.age;
+            }
+
+            public void setAge(int age) {
+                if(age>=0){
+                    this.age =age;
+
+                }
+            
+                
+        }
+    }  
