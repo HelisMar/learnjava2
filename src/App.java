@@ -1,26 +1,43 @@
-import java.util.ArrayList;
-
-
+import java.time.LocalDate;
+import java.util.Calendar;
 
 public class App {
     public static void main(String[] args) throws Exception {
 
-        int[] nums = new int[10]; //peab olema suurus ette määratud -10-
-            nums[0] = 16;
-            nums[1] = 20;
-            nums[2] = 21;
-            nums[4] = 22;
-
-            System.out.println(nums[1]); //Välja saab pritida, kui lisad väärtuse kandilistega
+            Student student = new Student ("Helis", LocalDate.of(1990, 03, 21));
             
-            String[] names = {"helis", "heidi"}; //kui suurust ei ole ette määratud, saab ta aru ka mitu on loogsulgudes 0,1,---
-
-            System.out.println(names[1]);
-
-            for(int num : nums){
-                System.out.println(num);
-            }
-
-            }
+    }
             
         }
+    
+class Person {                 //Koolides on õpilased ja õpetajad eraldi aga neil on ühised näitajad - mõlemad on isikud
+    private String name;        //neil on mingid muutujad nii töötajatel kui ka õpilastel
+    private LocalDate birthdate;
+
+    public Person (String name, LocalDate birthdate){
+        this.name = name;
+        this.birthdate = birthdate; }
+
+        
+
+            Public String getName(){
+                return name;
+            }
+            public LocalDate getBirthDate () {
+                return birthdate;
+            }
+        }
+        class Student extends Person {                          // extendiga saab seda laiendada
+            private Integer missedClasses;
+            public Student (String name, LocalDate birthdate) {
+                super(name,birthdate);
+            }
+            public Integer getMissedClasses(){
+                return missedClasses;
+            }
+            public void setMissedClasses(Integer missedClasses){
+                this.missedClasses = missedClasses;
+
+            }
+        }
+}
